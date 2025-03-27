@@ -299,114 +299,111 @@ header.sticky {
     color: var(--main-color); /* تعيين لون النص */
 }
 
-/* تصميم الحاوية اليمنى */
-.mid-right {
-    display: flex; /* استخدام flexbox */
-    align-items: center; /* محاذاة العناصر عموديًا */
-    gap: 2rem; /* إضافة تباعد بين العناصر */
+.Destination-card img {
+    width: 100%;
+    display: block;
+    height: 100%;
+    object-fit: cover;
 }
 
-/* تصميم الأيقونات داخل الحاوية اليمنى */
-.mid-right i {
-    display: inline-flex; /* جعل الأيقونة في خط واحد مع النص */
-    align-items: center; /* محاذاة العناصر عموديًا */
-    justify-content: center; /* توسيط المحتوى داخل العنصر */
-    height: 60px; /* تحديد الارتفاع */
-    width: 60px; /* تحديد العرض */
-    color: var(--text-color); /* لون الأيقونة */
-    background: transparent; /* جعل الخلفية شفافة */
-    border: 1px solid var(--main-color); /* تحديد لون الإطار */
-    border-radius: 50%; /* جعل الأيقونة دائرية */
-    font-size: 20px; /* تحديد حجم الأيقونة */
-    transition: all 0.7s ease; /* إضافة تأثير عند التحويل */
+.Destination-card h2 {
+    font-size: clamp(1rem, 0.8750rem + 0.6250vw, 1.5rem);
+    line-height: 1.3;
+    font-weight: 700;
 }
 
-/* تغيير لون الأيقونات عند تمرير الماوس */
-.mid-right i:hover {
-    background: var(--main-color); /* تغيير لون الخلفية */
-    color: var(--bg-color); /* تغيير لون النص */
-    border: 1px solid var(--main-color); /* إبقاء الإطار بنفس اللون */
+.Destination-card .card a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
 }
 
-/* تصميم محتوى الوجهات */
-.destination-content {
-    display: grid; /* استخدام نظام الشبكة */
-    grid-template-columns: repeat(auto-fit, minmax(300px, auto)); /* توزيع العناصر تلقائيًا */
-    gap: 2rem; /* إضافة تباعد بين العناصر */
-    display: flex; /* تحويل التخطيط إلى flexbox */
-    margin-top: 4rem; /* إضافة تباعد علوي */
+.Destination-card .card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* تصميم الصف الخاص بكل وجهة */
-.row {
-    transition: all 0.7s ease; /* إضافة تأثير عند التحويل */
+.Destination-card {
+    display: grid;
+    grid-template-columns: 25% 30% 15% 25%;
+    gap: 15px;
+    place-content: center;
+    grid-template-rows: 50% 50%;
+    height: 60vh;
+    min-height: 460px;
+    padding: max(2vh, 1.5rem);
 }
 
-/* تصميم حاوية الصورة */
-.row-img {
-    position: relative; /* تعيين الموضع النسبي */
-    display: inline-block; /* عرض العنصر ككتلة ضمنية */
-    transition: all 0.5s; /* إضافة تأثير سلس */
+.Destination-card .card {
+    border-radius: 25px;
+    box-shadow: -2px 4px 15px rgba(0, 0, 0, 0.26);
 }
 
-/* ضبط الصور داخل الوجهات */
-.row-img img {
-    width: 100%; /* جعل الصورة تمتد بعرض العنصر الأب */
-    height: auto; /* الحفاظ على نسبة الأبعاد */
-    display: block; /* إزالة الفراغات الإضافية */
-    border-radius: 10%; /* جعل حواف الصورة مستديرة */
+.Destination-card .card:nth-child(2) {
+    grid-column: 2/3;
+    grid-row: span 2;
 }
 
-/* تصميم الطبقة الشفافة (Overlay) عند التمرير */
-.overlay {
-    position: absolute; /* تحديد الموضع المطلق */
-    top: 0; /* جعله يغطي العنصر بالكامل */
+.Destination-card .card:nth-child(3) {
+    grid-column: span 2;
+}
+
+.Destination-card .card p {
+    font-size: clamp(0.9rem, 0.8750rem + 0.1250vw, 1rem);
+    line-height: 1.4;
+}
+
+.Destination-card .card img {
+    border-radius: 25px;
+}
+
+.Destination-card .card .card_img {
+    position: relative;
+    height: 100%;
+}
+
+.Destination-card .card .card_img .card_overla {
+    position: absolute;
+    bottom: 0;
     left: 0;
+    content: "";
+    color: #fff;
+    padding: clamp(0.938rem, 5vw, 1.563rem);
+    background: #02022e;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.57) 0%, rgba(255, 255, 255, 0) 100%);
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* تعيين لون خلفية شبه شفافة */
-    display: flex; /* استخدام flexbox لتوسيط النص */
-    justify-content: center; /* توسيط المحتوى أفقيًا */
-    align-items: center; /* توسيط المحتوى عموديًا */
-    color: #fff; /* تعيين لون النص */
-    font-size: 20px; /* حجم النص */
-    font-weight: bold; /* جعل النص غامقًا */
-    text-align: center; /* توسيط النص */
-    border-radius: 10%; /* جعل الحواف مستديرة */
-    opacity: 0; /* إخفاء العنصر في الوضع العادي */
-    transition: opacity 0.3s ease-in-out; /* تأثير الانتقال */
+    border-radius: 25px;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
 }
 
-/* إظهار الطبقة الشفافة عند تمرير الماوس */
-.row-img:hover .overlay {
-    opacity: 1;
-    border-radius: 10%;
+.Destination-card .card .card_img span {
+    position: absolute;
+    top: 25px;
+    left: min(2vmax, 1.563rem);
+    color: #ff7b29;
+    background: #fff;
+    border-radius: 50px;
+    padding: 2px 8px 2px 6px;
+    display: flex;
+    box-shadow: 0px 1px 20px #0000002b;
 }
 
-/* تصميم تقييم الوجهة (نجوم التقييم) */
-.star {
-    position: absolute; /* تحديد الموضع المطلق */
-    top: 5%; /* إبعاده عن الحافة العلوية */
-    right: 8%; /* إبعاده عن الحافة اليمنى */
-    display: flex; /* استخدام flexbox لمحاذاة العناصر */
-    align-items: center; /* توسيط العناصر */
-    padding: 4px 8px; /* إضافة تباعد داخلي */
-    background: var(--bg-color); /* تحديد لون الخلفية */
-    font-size: 15px; /* تعيين حجم النص */
-    border-radius: 10%; /* جعل الحواف مستديرة */
+.Destination-card .card .card_img span svg {
+    fill: #ff7b29;
+    width: 20px;
+    margin-right: 2px;
 }
 
-/* تصميم أيقونة النجمة */
-.star i {
-    color: gold; /* تعيين اللون الذهبي للنجمة */
-    font-size: 21px; /* تحديد حجم الأيقونة */
+.Destination-card .card.clicked {
+    transform: scale(0.95);
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
-/* تصميم رابط التقييم */
-.star a {
-    font-size: var(--p-font); /* استخدام حجم الخط العام */
-    font-weight: 600; /* جعل الخط متوسط السماكة */
-    color: var(--text-color); /* تحديد لون النص */
+.Destination-card .hide-cards .card {
+    display: none !important;
 }
 
 /* تأثير عند تمرير الماوس على العنصر */
@@ -846,162 +843,196 @@ footer {
 /* الأجهزة اللوحية (أقل من 1200px) */
 @media (max-width: 1200px) {
     .navlist {
-        display: none; /* إخفاء القائمة افتراضيًا */
-        position: absolute; /* تحديد موقعها بشكل مطلق */
-        top: 60px; /* وضعها تحت الهيدر */
-        left: 0; /* محاذاتها إلى اليسار */
-        width: 100%; /* جعلها تمتد على عرض الشاشة */
-        background: rgba(0, 0, 0, 0.9); /* جعل الخلفية شبه شفافة */
-        flex-direction: column; /* ترتيب العناصر عموديًا */
-        align-items: center; /* محاذاة العناصر في المنتصف */
-        gap: 15px; /* إضافة مسافة بين العناصر */
-        padding: 15px 0; /* إضافة تباعد داخلي */
+        display: none;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.9);
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        padding: 15px 0;
     }
 
     .navlist.active {
-        display: flex; /* إظهار القائمة عند تفعيل كلاس active */
+        display: flex;
     }
 
     .navlist a {
-        color: white; /* تغيير لون الروابط إلى الأبيض */
-        font-size: 18px; /* تحديد حجم الخط */
-        text-decoration: none; /* إزالة التسطير */
-        display: block; /* جعل الروابط تأخذ كامل العرض */
-        padding: 10px; /* إضافة تباعد داخلي */
+        color: white;
+        font-size: 18px;
+        text-decoration: none;
+        display: block;
+        padding: 10px;
     }
 
     #menu-icon {
-        display: block; /* إظهار أيقونة القائمة */
-        font-size: 24px; /* تكبير حجم الأيقونة */
-        color: white; /* تغيير لون الأيقونة إلى الأبيض */
-        cursor: pointer; /* تغيير المؤشر إلى اليد عند التحويم */
-        user-select: none; /* منع تحديد الأيقونة */
-        z-index: 1100; /* جعلها فوق جميع العناصر */
-        position: relative; /* تحديد موضعها */
+        display: block;
+        font-size: 24px;
+        color: white;
+        cursor: pointer;
+        user-select: none;
+        z-index: 1100;
+        position: relative;
     }
 
     .destination-content {
-        flex-direction: column; /* ترتيب العناصر بشكل عمودي */
-        align-items: center; /* محاذاة العناصر في المنتصف */
+        flex-direction: column;
+        align-items: center;
     }
 
     .about {
-        flex-direction: column; /* ترتيب النص بشكل عمودي */
-        text-align: center; /* محاذاة النص في المنتصف */
+        flex-direction: column;
+        text-align: center;
     }
 
     .arrow {
-        display: none; /* إخفاء السهم في الشاشات الصغيرة */
+        display: none;
     }
 }
 
 /* الأجهزة المحمولة (أقل من 768px) */
 @media (max-width: 768px) {
     header {
-        display: flex; /* جعل الهيدر مرنًا */
-        justify-content: space-between; /* توزيع العناصر في الهيدر */
-        align-items: center; /* محاذاة العناصر في المنتصف */
-        padding: 22px; /* إضافة تباعد داخلي */
-        background: rgba(0, 0, 0, 0.9); /* تغيير الخلفية إلى لون داكن */
-        position: fixed; /* تثبيت الهيدر أعلى الصفحة */
-        width: 100%; /* جعله يغطي عرض الشاشة */
-        top: 0; /* تثبيته في الأعلى */
-        left: 0; /* محاذاته إلى اليسار */
-        z-index: 1000; /* جعله فوق باقي العناصر */
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 22px;
+        background: rgba(0, 0, 0, 0.9);
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: 1000;
     }
 
     .navlist {
-        position: absolute; /* تحديد الموقع المطلق للقائمة */
-        top: 60px; /* وضعها أسفل الهيدر */
-        left: 0; /* محاذاتها إلى اليسار */
-        width: 100%; /* جعلها تمتد على عرض الشاشة */
-        background: rgba(0, 0, 0, 0.9); /* تغيير الخلفية */
-        display: none; /* إخفاء القائمة افتراضيًا */
-        flex-direction: column; /* ترتيب العناصر عموديًا */
-        align-items: center; /* محاذاة العناصر في المنتصف */
-        gap: 15px; /* إضافة مسافة بين العناصر */
-        padding: 15px 0; /* إضافة تباعد داخلي */
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.9);
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        padding: 15px 0;
     }
 
     .navlist.active {
-        display: flex; /* إظهار القائمة عند تفعيلها */
+        display: flex;
     }
 
     .navlist a {
-        color: white; /* تغيير لون الروابط إلى الأبيض */
-        font-size: 18px; /* تكبير حجم الخط */
-        text-decoration: none; /* إزالة التسطير */
-        display: block; /* جعل الروابط تأخذ كامل العرض */
-        padding: 10px; /* إضافة تباعد داخلي */
+        color: white;
+        font-size: 18px;
+        text-decoration: none;
+        display: block;
+        padding: 10px;
     }
 
     #menu-icon {
-        display: block; /* إظهار زر القائمة */
-        font-size: 24px; /* تكبير الأيقونة */
-        color: white; /* تغيير اللون إلى الأبيض */
-        cursor: pointer; /* تغيير المؤشر عند التحويم */
-        user-select: none; /* منع التحديد */
-        z-index: 1100; /* جعله فوق باقي العناصر */
-        position: relative; /* تحديد موضعه */
+        display: block;
+        font-size: 24px;
+        color: white;
+        cursor: pointer;
+        user-select: none;
+        z-index: 1100;
+        position: relative;
     }
 
     .home {
-        margin-top: 80px; /* إضافة هامش علوي لتجنب التداخل مع الهيدر */
-        text-align: center; /* توسيط النص */
-        padding: 20px; /* إضافة تباعد داخلي */
+        margin-top: 80px;
+        text-align: center;
+        padding: 20px;
     }
 
     .home-contain {
-        display: flex; /* استخدام الفليكس بوكس */
-        flex-wrap: wrap; /* السماح للعناصر بالانتقال إلى سطر جديد */
-        justify-content: center; /* توسيط المحتوى */
-        gap: 10px; /* إضافة مسافة بين العناصر */
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
     }
 
     .h-row {
-        width: 30%; /* تحديد عرض العنصر */
-        text-align: center; /* توسيط النص */
+        width: 30%;
+        text-align: center;
     }
 
     .h-row img {
-        width: 100%; /* جعل الصور تمتد لكامل عرض العنصر */
-        height: auto; /* الحفاظ على الأبعاد الأصلية */
-        border-radius: 10px; /* تقريب الحواف */
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
     }
 
     .h-row h6 {
-        display: none; /* إخفاء النصوص */
+        display: none;
     }
 
     .home-btn {
-        display: flex; /* استخدام الفليكس بوكس */
-        flex-direction: row; /* ترتيب الأزرار بجانب بعض */
-        justify-content: center; /* توسيط الأزرار */
-        gap: 5px; /* إضافة مسافة بين الأزرار */
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 5px;
     }
 
     .home-btn .btn,
     .home-btn .btn-second {
-        display: inline-block; /* جعل الأزرار كعناصر بلوك */
-        width: 150px; /* تحديد العرض */
-        padding: 10px; /* إضافة تباعد داخلي */
-        font-size: 16px; /* تكبير حجم الخط */
-        text-align: center; /* توسيط النص */
-        border-radius: 5px; /* تقريب الحواف */
+        display: inline-block;
+        width: 150px;
+        padding: 10px;
+        font-size: 16px;
+        text-align: center;
+        border-radius: 5px;
     }
 
     .arrow {
-        display: none; /* إخفاء السهم في الشاشات الصغيرة */
+        display: none;
     }
 }
 
+/* تحسينات لقسم Destination-card */
+@media (max-width: 690px) {
+    .Destination-card {
+        height: 65vh;
+    }
 
+    .Destination-card .card:nth-child(2) {
+        grid-column: span 1;
+        grid-row: span 1;
+    }
 
+    .Destination-card .card:nth-child(3) {
+        grid-column: 2/4;
+        grid-row: 1/2;
+    }
 
+    .Destination-card .card:nth-child(6) {
+        grid-column: 2/4;
+        grid-row: 2/3;
+    }
 
+    sect.Destination-cardion .card .card_img span {
+        top: 20px;
+    }
+}
 
+@media (max-width: 470px) {
+    .Destination-card {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 35%);
+    }
 
+    .Destination-card .card {
+        grid-column: span 1;
+    }
 
+    .Destination-card .card:nth-child(5) {
+        grid-column: span 2;
+    }
 
-
-
+    .Destination-card .card .card_img span {
+        top: 15px;
+    }
+}
